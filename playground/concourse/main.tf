@@ -10,7 +10,8 @@ module "concourse" {
   public_key = var.public_key
 
   prefix = "oct12000"
-
+  instances_prefix = formatdate("DD-MMM-YY", timestamp())
+  
   worker = {
     instance_type        = "t3.micro"
     min                  = 1

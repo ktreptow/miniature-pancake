@@ -25,7 +25,7 @@ resource "aws_autoscaling_group" "web-asg" {
 
   tag {
     key                 = "Name"
-    value               = "Concourse Web ${var.prefix}_${aws_launch_template.web.id}_${aws_launch_template.web.latest_version}"
+    value               = "Concourse Web ${var.instances_prefix}_${aws_launch_template.web.id}_${aws_launch_template.web.latest_version}"
     propagate_at_launch = true
   }
 }
@@ -71,7 +71,7 @@ resource "aws_autoscaling_group" "worker-asg" {
 
   tag {
     key                 = "Name"
-    value               = "Concourse Worker ${var.prefix}_${aws_launch_template.worker.id}_${aws_launch_template.worker.latest_version}"
+    value               = "Concourse Worker ${var.instances_prefix}_${aws_launch_template.worker.id}_${aws_launch_template.worker.latest_version}"
     propagate_at_launch = true
   }
 }

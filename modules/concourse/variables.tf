@@ -46,6 +46,10 @@ variable "prefix" {
   description = "prefix of the application"
   default = "concourse"
 }
+variable "instances_prefix" {
+  description = "prefix of the application"
+  default = "Oktober1"
+}
 variable "concourse_version" {
   default     = " 6.5.0"
   description = "The image name for concourse. Defaults to latest, but you should lock this down."
