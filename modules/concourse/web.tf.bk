@@ -1,0 +1,25 @@
+
+resource "aws_instance" "concourse_web" {
+  ami           = data.aws_ami.ubuntu.id
+  instance_type = var.web.instance_type
+  count         = var.web.count
+   
+  network_interface {
+    network_interface_id = aws_network_interface.web_interface.id
+    device_index         = 0
+  }
+
+  tags = {
+    Name = "${var.prefix}-concourse_web"
+  }
+}
+
+resource "aws_network_interface" "web_interface" {
+  subnet_id   = aws_subnet.conc_subnet.id
+  private_ips = ["10.10.10.101"]
+
+  tags = {
+    Name = "primary_network_interface"
+  }
+}
+
