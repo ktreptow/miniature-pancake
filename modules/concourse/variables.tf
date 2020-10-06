@@ -1,5 +1,8 @@
 variable "public_key" {}
 
+variable "aws_region" {
+  default = "eu-central-1"
+}
 variable "cidr_vpc" {
   description = "CIDR block for the VPC"
   default = "10.10.0.0/16"
@@ -53,9 +56,6 @@ variable "instances_prefix" {
 variable "concourse_version" {
   default     = " 6.5.0"
   description = "The image name for concourse. Defaults to latest, but you should lock this down."
-}
-variable "aws_region" {
-  default = "eu-central-1"
 }
 variable "aws_ami_id" {
   description = "AMI id for worker and web EC2 instances"
